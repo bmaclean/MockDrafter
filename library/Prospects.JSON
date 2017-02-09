@@ -1,0 +1,303 @@
+[
+	{
+		"Name": "Myles Garrett",
+		"Position": "Edge Rusher",
+		"Rank": 1,
+		"School" : "Texas A & M"
+	},
+	{
+		"Name": "Malik Hooker",
+		"Position": "Safety",
+		"Rank": 2,
+		"School" : "Ohio State"
+	},
+	{
+		"Name": "Marshon Lattimore",
+		"Position": "Cornerback",
+		"Rank": 3,
+		"School" : "Ohio State"
+	},
+	{
+		"Name": "Jamal Adams",
+		"Position": "Safety",
+		"Rank": 4,
+		"School" : "LSU"
+	},
+	{
+		"Name": "Jonathan Allen",
+		"Position": "Defensive Tackle",
+		"Rank": 5,
+		"School" : "Alabama"
+	},
+	{
+		"Name": "Leonard Fournette",
+		"Position": "Running Back",
+		"Rank": 6,
+		"School" : "LSU"
+	},
+	{
+		"Name": "Reuben Foster",
+		"Position": "Inside Linebacker",
+		"Rank": 7,
+		"School" : "Alabama"
+	},
+	{
+		"Name": "Corey Davis",
+		"Position": "Wide Receiver",
+		"Rank": 8,
+		"School" : "Western Michigan"
+	},
+	{
+		"Name": "Mike Williams",
+		"Position": "Wide Receiver",
+		"Rank": 9,
+		"School" : "Clemson"
+	},
+	{
+		"Name": "Soloman Thomas",
+		"Position": "Edge Rusher",
+		"Rank": 10,
+		"School" : "Stanford"
+	},
+	{
+		"Name": "Dalvin Cook",
+		"Position": "Running Back",
+		"Rank": 11,
+		"School" : "Florida State"
+	},
+	{
+		"Name": "Sidney Jones",
+		"Position": "Cornerback",
+		"Rank": 12,
+		"School" : "Washington"
+	},
+	{
+		"Name": "David Njoku",
+		"Position": "Tight End",
+		"Rank": 13,
+		"School" : "Miami"
+	},
+	{
+		"Name": "Ryan Ramczyk",
+		"Position": "Offensive Tackle",
+		"Rank": 14,
+		"School" : "Wisconsin"
+	},
+	{
+		"Name": "DeShone Kizer",
+		"Position": "Quarterback",
+		"Rank": 15,
+		"School" : "Notre Dame"
+	},
+	{
+		"Name": "Forrest Lamp",
+		"Position": "Offensive Guard",
+		"Rank": 16,
+		"School" : "Western Kentucky"
+	},
+	{
+		"Name": "Derek Barnett",
+		"Position": "Edge Rusher",
+		"Rank": 17,
+		"School" : "Tennessee"
+	},
+	{
+		"Name": "O.J. Howard",
+		"Position": "Tight End",
+		"Rank": 18,
+		"School" : "Alabama"
+	},
+	{
+		"Name": "Tre'Davious White",
+		"Position": "Cornerback",
+		"Rank": 19,
+		"School" : "LSU"
+	},
+	{
+		"Name": "Jalen Tabor",
+		"Position": "Cornerback",
+		"Rank": 20,
+		"School" : "Florida"
+	},
+	{
+		"Name": "Quincy Wilson",
+		"Position": "Cornerback",
+		"Rank": 21,
+		"School" : "Florida"
+	},
+	{
+		"Name": "Takkarist McKinley",
+		"Position": "Edge Rusher",
+		"Rank": 22,
+		"School" : "UCLA"
+	},
+	{
+		"Name": "Taco Charlton",
+		"Position": "Edge Rusher",
+		"Rank": 23,
+		"School" : "Michigan"
+	},
+	{
+		"Name": "Budda Baker",
+		"Position": "Safety",
+		"Rank": 24,
+		"School" : "Washington"
+	},
+	{
+		"Name": "Christian McCaffrey",
+		"Position": "Running Back",
+		"Rank": 25,
+		"School" : "Stanford"
+	},
+	{
+		"Name": "Alvin Kamara",
+		"Position": "Running Back",
+		"Rank": 26,
+		"School" : "Tennessee"
+	},
+	{
+		"Name": "John Ross",
+		"Position": "Wide Receiver",
+		"Rank": 27,
+		"School" : "Washington"
+	},
+	{
+		"Name": "Garett Bolles",
+		"Position": "Offensive Tackle",
+		"Rank": 28,
+		"School" : "Utah"
+	},
+	{
+		"Name": "Gareon Conley",
+		"Position": "Cornerback",
+		"Rank": 29,
+		"School" : "Ohio State"
+	},
+	{
+		"Name": "Jarrad Davis",
+		"Position": "Inside Linebacker",
+		"Rank": 30,
+		"School" : "Florida"
+	},
+	{
+		"Name": "Mitch Trubisky",
+		"Position": "Quarterback",
+		"Rank": 31,
+		"School" : "North Carolina"
+	},
+	{
+		"Name": "Deshaun Watson",
+		"Position": "Quarterback",
+		"Rank": 32,
+		"School" : "Clemson"
+	},
+	{
+		"Name": "Jabrill Peppers",
+		"Position": "Inside Linebacker",
+		"Rank": 33,
+		"School" : "Michigan"
+	},
+	{
+		"Name": "T.J. Watt",
+		"Position": "Inside Linebacker",
+		"Rank": 34,
+		"School" : "Wisconsin"
+	},
+	{
+		"Name": "Gerald Everett",
+		"Position": "Tight End",
+		"Rank": 35,
+		"School" : "South Alabama"
+	},
+	{
+		"Name": "Charles Harris",
+		"Position": "Edge Rusher",
+		"Rank": 36,
+		"School" : "Missouri"
+	},
+	{
+		"Name": "Adoree Jackson",
+		"Position": "Cornerback",
+		"Rank": 37,
+		"School" : "USC"
+	},
+	{
+		"Name": "Tim Williams",
+		"Position": "Edge Rusher",
+		"Rank": 38,
+		"School" : "Alabama"
+	},
+	{
+		"Name": "Malik McDowell",
+		"Position": "Defensive Tackle",
+		"Rank": 39,
+		"School" : "Michigan State"
+	},
+	{
+		"Name": "Cam Robinson",
+		"Position": "Offensive Tackle",
+		"Rank": 40,
+		"School" : "Alabama"
+	},
+	{
+		"Name": "Curtis Samuel",
+		"Position": "Running Back",
+		"Rank": 41,
+		"School" : "Ohio State"
+	},
+	{
+		"Name": "DeMarcus Walker",
+		"Position": "Edge Rusher",
+		"Rank": 42,
+		"School" : "Florida State"
+	},
+	{
+		"Name": "Caleb Brantley",
+		"Position": "Defensive Tackle",
+		"Rank": 43,
+		"School" : "Caleb Brantley"
+	},
+	{
+		"Name": "Cooper Kupp",
+		"Position": "Wide Receiver",
+		"Rank": 44,
+		"School" : "Eastern Washington"
+	},
+	{
+		"Name": "Marlon Humphrey",
+		"Position": "Cornerback",
+		"Rank": 45,
+		"School" : "Alabama"
+	},
+	{
+		"Name": "Marcus Williams",
+		"Position": "Safety",
+		"Rank": 46,
+		"School" : "Utah"
+	},
+	{
+		"Name": "Ryan Anderson",
+		"Position": "Outside Linebacker",
+		"Rank": 47,
+		"School" : "Alabama"
+	},
+	{
+		"Name": "Chad Hansen",
+		"Position": "Wide Receiver",
+		"Rank": 48,
+		"School" : "California",
+	},
+	{
+		"Name": "Jourdan Lewis",
+		"Position": "Cornerback",
+		"Rank": 49,
+		"School" : "Michigan"
+	},
+	{
+		"Name": "Kevin King",
+		"Position": "Cornerback",
+		"Rank": 50,
+		"School" : "Washington"
+	}
+]
+
