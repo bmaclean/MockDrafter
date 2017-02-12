@@ -6,7 +6,7 @@ import java.util.List;
  */
 public enum Team {
     //AFCS
-    IND("Indianapolis Colts", Arrays.asList(Position.EDGE, Position.RB, Position.ILB), 14),
+    IND("Indianapolis Colts", Arrays.asList(Position.EDGE, Position.RB, Position.ILB, Position.CB), 14),
     TEN("Tennessee Titans", Arrays.asList(Position.WR, Position.CB, Position.TE), 18),
     HOU("Houston Texans", Arrays.asList(Position.QB, Position.ILB, Position.OT), 25),
     JAX("Jacksonville Jaguars", Arrays.asList(Position.OT, Position.DT, Position.S), 4),
@@ -18,10 +18,10 @@ public enum Team {
     CLE("Cleveland Browns", Arrays.asList(Position.QB, Position.EDGE, Position.RB), 1),
 
     //AFCE
-    NE("New England Patriots", Arrays.asList(Position.OT, Position.ILB, Position.OLB, Position.RB), 31),
+    NE("New England Patriots", Arrays.asList(Position.OT, Position.ILB, Position.OLB, Position.RB), 32),
     MIA("Miami Dolphins", Arrays.asList(Position.OG, Position.EDGE, Position.TE), 22),
     BUF("Buffalo Bills", Arrays.asList(Position.OT, Position.WR, Position.CB, Position.S), 10),
-    NYJ("New York Jets", Arrays.asList(Position.QB, Position.OT, Position.CB, Position.OLB), 6),
+    NYJ("New York Jets", Arrays.asList(Position.QB, Position.OT, Position.CB, Position.EDGE), 6),
 
     //AFCW
     DEN("Denver Broncos", Arrays.asList(Position.OT, Position.TE, Position.OG), 20),
@@ -33,7 +33,7 @@ public enum Team {
     TB("Tampa Bay Buccaneers", Arrays.asList(Position.OT, Position.S, Position.WR), 19),
     CAR("Carolina Panthers", Arrays.asList(Position.OT, Position.CB, Position.RB), 8),
     NO("New Orleans Saints", Arrays.asList(Position.S, Position.CB, Position.ILB), 11),
-    ATL("Atlanta Falcons", Arrays.asList(Position.DT, Position.CB, Position.EDGE), 32),
+    ATL("Atlanta Falcons", Arrays.asList(Position.DT, Position.CB, Position.EDGE), 31),
 
     //NFCN
     DET("Detroit Lions", Arrays.asList(Position.CB, Position.EDGE, Position.ILB, Position.OLB), 21),

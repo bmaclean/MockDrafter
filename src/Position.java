@@ -26,7 +26,7 @@ public enum Position {
                      break;
             case S: name = "S";
                      break;
-            case DT: name = "DT";
+            case DT: name = "DL";
                      break;
             case OLB: name = "OLB";
                      break;
