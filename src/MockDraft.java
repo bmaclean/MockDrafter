@@ -2,10 +2,6 @@ import org.json.JSONException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -15,16 +11,19 @@ import java.util.Scanner;
 
 public class MockDraft {
 
-    public static void main(String[] args) throws InterruptedException{
+    public static void main(String[] args) throws InterruptedException {
         //create mockDraft instance & parse prospect data
+        int LONG_PAUSE = 3000;
+        int MED_PAUSE = 2000;
+        int SHORT_PAUSE = 1000;
+
         MockDraft mockDraft = new MockDraft();
         String text = "";
         try {
             Scanner scanner = new Scanner(new File("Prospects.JSON"));
             text = scanner.useDelimiter("\\A").next();
             scanner.close();
-        }
-        catch (FileNotFoundException fnfe) {
+        } catch (FileNotFoundException fnfe) {
             System.out.println("Prospects file not found.");
         }
         ProspectParser parser = new ProspectParser(text);
@@ -34,8 +33,7 @@ public class MockDraft {
 
         try {
             draftables = parser.parse();
-        }
-        catch (JSONException je) {
+        } catch (JSONException je) {
             System.out.println("Error in JSON data." + '\n');
         }
 
@@ -47,13 +45,17 @@ public class MockDraft {
         int myPick;
 
         if (t.equals("random")) {
-            myPick = 1 + (int)(Math.random() * 32);
+            myPick = 1 + (int) (Math.random() * 32);
             myTeam = mockDraft.getTeam(myPick);
-        }
-        else {
+        } else {
             myTeam = mockDraft.getTeam(t);
             myPick = myTeam.getPick();
         }
+        Thread.sleep(MED_PAUSE);
+
+        System.out.println('\n' + "How many rounds would you like to draft? Please enter a number between 1 and 7." + '\n');
+        Scanner scan2 = new Scanner(System.in);
+        Integer rounds = Integer.parseInt(scan2.nextLine());
 
         //     playerSelection -> player being selected in a given round
         Player playerSelection;
@@ -62,33 +64,56 @@ public class MockDraft {
         //     selectionPos    -> name of position of player being selected in a given round
         String selectionPos = "";
 
-        Thread.sleep(1000);
-        System.out.println('\n' +"Welcome to the 2017 NFL Draft. You will be drafting as the " + myTeam.getName()
-                            + "." + '\n' );
-        Thread.sleep(2000);
+        Thread.sleep(SHORT_PAUSE);
+        System.out.println('\n' + "Welcome to the 2017 NFL Draft. You will be drafting as the " + myTeam.getName()
+                + "." + '\n');
+        Thread.sleep(MED_PAUSE);
 
-        //TODO: String 'nth' value being 'st' for pick == 1, 'nd' for pick == 2,
-        //TODO: 'rd' for pick ==3, 'th' otherwise
+        String suffix;
+
         System.out.println("You will be selecting at pick " + Integer.toString(myPick) + "." + '\n');
-        Thread.sleep(3000);
+        Thread.sleep(LONG_PAUSE);
 
         //iterate through first round by pick
-        for (int n = 1; n <= 32; n++) {
-            if (n == myPick) {
-                playerSelection = mockDraft.draft(myPick, myTeam.getName(), draftables, drafted);
-                selectionName = playerSelection.getName();
-                selectionPos = playerSelection.getPositionName();
-                drafted.add(playerSelection);
+        for (int r = 1; r <= rounds; r++) {
+            System.out.println("Round " + Integer.toString(r) + " is beginning." + '\n');
+            for (int n = 1; n <= 32; n++) {
+                switch (n) {
+                    case 1:
+                    case 21:
+                    case 31:
+                        suffix = "st";
+                        break;
+                    case 2:
+                    case 22:
+                    case 32:
+                        suffix = "nd";
+                        break;
+                    case 3:
+                    case 23:
+                    case 33:
+                        suffix = "rd";
+                        break;
+                    default:
+                        suffix = "th";
+
+                }
+                if (n == myPick) {
+                    playerSelection = mockDraft.draft(myPick, myTeam, draftables, drafted);
+                    selectionName = playerSelection.getName();
+                    selectionPos = playerSelection.getPositionName();
+                    drafted.add(playerSelection);
+                } else {
+                    Player AIDraftee = mockDraft.AIdraft(mockDraft.getTeam(n), draftables, drafted);
+                    drafted.add(AIDraftee);
+                    mockDraft.getTeam(n).removePosition(AIDraftee.getPosition());
+                    System.out.println("With the " + Integer.toString(n * r) + suffix + " overall pick, the " +
+                            mockDraft.getTeam(n).getName() + " select " +
+                            AIDraftee.getName() + ", " + AIDraftee.getPositionName() + ", " + AIDraftee.getSchool() + "." + '\n');
+                }
+                Thread.sleep(1500);
             }
-            else {
-                Player AIDraftee = mockDraft.AIdraft(mockDraft.getTeam(n), draftables, drafted);
-                drafted.add(AIDraftee);
-                //AIDraftee = new Player("John Hunchak", Position.ILB, 3);
-                System.out.println("With pick " + Integer.toString(n) + " the " +
-                                    mockDraft.getTeam(n).getName() + " select " +
-                                    AIDraftee.getName() + ", " + AIDraftee.getPositionName() + ", " + AIDraftee.getSchool() + "." + '\n' );
-            }
-            Thread.sleep(1500);
+
         }
         //TODO: add another round using counter 'pickCounter', each loop is new round beginning at
         //TODO: pickCounter = 32 (round 2), 64 (round 3), etc.
@@ -96,8 +121,10 @@ public class MockDraft {
         //TODO: alternative: helper function 'draftRounds(int rounds, ...)' that receives the number of
         //TODO: round to draft, using 'rounds' as a decreasing counter to 0
 
-        System.out.println("Thank you for attending the 2017 NFL Draft. Here is your 2017 draft class: " + '\n' +
-                            "Round 1: " + selectionName + ", " + selectionPos);
+        System.out.println("Thank you for attending the 2017 NFL Draft. Here is your 2017 draft class: " + '\n');
+        for (int r = 1; r <= rounds; r++) {
+            System.out.println("Round " + Integer.toString(r) + ": " + selectionName + ", " + selectionPos);
+        }
     }
 
 
@@ -122,14 +149,20 @@ public class MockDraft {
     }
 
 
-    private Player draft(int pick, String team, List<Player> selectableList, List<Player> selectedList) {
+    private Player draft(int pick, Team team, List<Player> selectableList, List<Player> selectedList) {
         Player mySelection = null;
 
         //TODO: advice function that provides 3/4 players (w/ highest score) with custom descriptions
 
-        System.out.println("The " + team + " are on the clock! Enter your selection below." + '\n' + '\n' );
+        System.out.println("The " + team.getName() + " are on the clock! Enter your selection below." + '\n'
+                + "If you would like some suggestions, enter 'help'." + '\n' );
         Scanner scan = new Scanner(System.in);
         String s = scan.nextLine().toLowerCase();
+
+        if (s.equals("help")) {
+            draftSuggestions(team, selectableList, selectedList);
+        }
+
         for (Player p: selectableList) {
             if (p.getName().toLowerCase().contains(s)) {
                 mySelection = p;
@@ -140,11 +173,20 @@ public class MockDraft {
             draft(pick, team, selectableList, selectedList);
         }
         if (mySelection != null) {
-            System.out.println("With pick " + Integer.toString(pick) + " the " + team + " select " +
+            System.out.println("With pick " + Integer.toString(pick) + " the " + team.getName() + " select " +
                     mySelection.getName() + ", " + mySelection.getPositionName()+ ", " + mySelection.getSchool() + "."  + '\n' );
         }
 
         return mySelection;
+    }
+
+    private void draftSuggestions(Team team, List<Player> selectableList, List<Player> selectedList) {
+        //TODO: no duplicate players
+        for (int i = 5; i > 0; i--) {
+            Player suggestion = draftValues(selectableList, selectedList, team.getNeeds());
+            System.out.println(suggestion.getName() + ", " + suggestion.getPositionName());
+        }
+
     }
 
 
@@ -153,8 +195,7 @@ public class MockDraft {
         List<Player> draftBoard = new ArrayList<>();
         Player draftee = null;
 
-        Player selection = draftValues(selectableList, selectedList,  teamNeeds);
-        return selection;
+        return draftValues(selectableList, selectedList,  teamNeeds);
     }
 
 
@@ -167,9 +208,10 @@ public class MockDraft {
         //iterate through the draft board, give each player score, and sort by score...
         for (Player p: draftBoard) {
             //TODO: change constants to local variable factors
-            playerScore += (random * 1000.0)/((p.getRank()/2));
+            playerScore += (random * 300.0)/((p.getRank() + 1) / 2);
             if(p.getPositionName().equals("QB") && teamNeeds.contains(p.getPosition())) {
-                playerScore += 90.0;
+                playerScore += 800.0/p.getRank();
+                //System.out.println("QB score boost applied.");
             }
 
             if(p.getPositionName().equals("EDGE")) {
@@ -177,7 +219,7 @@ public class MockDraft {
             }
 
             if(teamNeeds.contains(p.getPosition())) {
-                playerScore += 10.0;
+                playerScore += 20.0;
             }
             if ((playerScore > highestScore || bestSelection == null) && !selected.contains(p)) {
                 bestSelection = p;
@@ -189,16 +231,11 @@ public class MockDraft {
                 System.out.println(p.getName() + " " + playerScore);
             }
             */
+
+
             playerScore = 0;
         }
         return bestSelection;
-    }
-
-    static String readFile(String path, Charset encoding)
-            throws IOException
-    {
-        byte[] encoded = Files.readAllBytes(Paths.get(path));
-        return new String(encoded, encoding);
     }
 
 }
