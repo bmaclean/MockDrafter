@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="85763d38-e7d1-4b18-8585-a746b8c05776" name="Default" comment="- Added the option for multiple rounds&#10;- Changed team needs to ArrayList&#10;- Tweaked draftValues()&#10;- Added a 'help' option to call draftSuggestions(), provides user with list of 5 player suggestions&#10;- Added TODO's">
+    <list default="true" id="85763d38-e7d1-4b18-8585-a746b8c05776" name="Default" comment="- Fixed suggestions to prevent duplicates&#10;- Added some TODO's">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MockDrafter/MockDraft.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MockDrafter/Team.class" afterPath="$PROJECT_DIR$/out/production/MockDrafter/Team.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MockDraft.java" afterPath="$PROJECT_DIR$/src/MockDraft.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Team.java" afterPath="$PROJECT_DIR$/src/Team.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProspectParser.java" afterPath="$PROJECT_DIR$/src/ProspectParser.java" />
     </list>
     <ignored path="MockDrafter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,12 +34,12 @@
       <file leaf-file-name="MockDraft.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MockDraft.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1398">
-              <caret line="238" column="5" selection-start-line="238" selection-start-column="5" selection-end-line="238" selection-end-column="5" />
+            <state relative-caret-position="-975">
+              <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1487330412000" expanded="false" signature="2978:3545" ph="..." />
-                <marker date="1487330412000" expanded="true" signature="2979:3545" ph="..." />
+                <marker date="1487470945000" expanded="false" signature="2895:3462" ph="..." />
+                <marker date="1487470945000" expanded="true" signature="2896:3462" ph="..." />
               </folding>
             </state>
           </provider>
@@ -46,8 +48,8 @@
       <file leaf-file-name="ProspectParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ProspectParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="32" column="69" selection-start-line="32" selection-start-column="69" selection-end-line="32" selection-end-column="69" />
+            <state relative-caret-position="138">
+              <caret line="13" column="82" selection-start-line="13" selection-start-column="82" selection-end-line="13" selection-end-column="82" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,35 +80,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProspectsWithoutSchool.JSON" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ProspectsWithoutSchool.JSON">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26418">
-              <caret line="268" column="18" selection-start-line="268" selection-start-column="18" selection-end-line="268" selection-end-column="18" />
-              <caret line="292" column="18" selection-start-line="292" selection-start-column="18" selection-end-line="292" selection-end-column="18" />
-              <caret line="730" column="18" selection-start-line="730" selection-start-column="18" selection-end-line="730" selection-end-column="18" />
-              <caret line="922" column="18" selection-start-line="922" selection-start-column="18" selection-end-line="922" selection-end-column="18" />
-              <caret line="1084" column="18" selection-start-line="1084" selection-start-column="18" selection-end-line="1084" selection-end-column="18" />
-              <caret line="1186" column="18" selection-start-line="1186" selection-start-column="18" selection-end-line="1186" selection-end-column="18" />
-              <caret line="1240" column="18" selection-start-line="1240" selection-start-column="18" selection-end-line="1240" selection-end-column="18" />
-              <caret line="1432" column="18" selection-start-line="1432" selection-start-column="18" selection-end-line="1432" selection-end-column="18" />
-              <caret line="1528" column="18" selection-start-line="1528" selection-start-column="18" selection-end-line="1528" selection-end-column="18" />
-              <caret line="1534" column="18" selection-start-line="1534" selection-start-column="18" selection-end-line="1534" selection-end-column="18" />
-              <caret line="1594" column="18" selection-start-line="1594" selection-start-column="18" selection-end-line="1594" selection-end-column="18" />
-              <caret line="1624" column="18" selection-start-line="1624" selection-start-column="18" selection-end-line="1624" selection-end-column="18" />
-              <caret line="1750" column="18" selection-start-line="1750" selection-start-column="18" selection-end-line="1750" selection-end-column="18" />
-              <caret line="1756" column="18" selection-start-line="1756" selection-start-column="18" selection-end-line="1756" selection-end-column="18" />
-              <caret line="1912" column="18" selection-start-line="1912" selection-start-column="18" selection-end-line="1912" selection-end-column="18" />
-              <caret line="2050" column="18" selection-start-line="2050" selection-start-column="18" selection-end-line="2050" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Team.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Team.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-195">
+            <state relative-caret-position="105">
               <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -118,7 +95,7 @@
       <file leaf-file-name="Prospects.JSON" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Prospects.JSON">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2835">
+            <state relative-caret-position="686">
               <caret line="189" column="27" selection-start-line="189" selection-start-column="27" selection-end-line="189" selection-end-column="27" />
               <folding />
             </state>
@@ -149,11 +126,11 @@
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/FileDataProvider.java" />
         <option value="$PROJECT_DIR$/src/Player.java" />
-        <option value="$PROJECT_DIR$/src/ProspectParser.java" />
         <option value="$PROJECT_DIR$/src/Position.java" />
         <option value="$PROJECT_DIR$/Prospects.JSON" />
         <option value="$PROJECT_DIR$/ProspectsWithoutSchool.JSON" />
         <option value="$PROJECT_DIR$/src/Team.java" />
+        <option value="$PROJECT_DIR$/src/ProspectParser.java" />
         <option value="$PROJECT_DIR$/src/MockDraft.java" />
       </list>
     </option>
@@ -193,6 +170,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -242,8 +221,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -620,7 +597,8 @@
       <workItem from="1486600110094" duration="929000" />
       <workItem from="1486848267867" duration="2018000" />
       <workItem from="1486864373171" duration="276000" />
-      <workItem from="1487325341562" duration="4938000" />
+      <workItem from="1487325341562" duration="5621000" />
+      <workItem from="1487381394477" duration="1462000" />
     </task>
     <task id="LOCAL-00001" summary="- Updated position .getName to match JSON data&#10;- Added Scanner to import Prospects as String&#10;- Updated position names in Prospects.JSON to match Position class&#10;- Removed former AI draft implementation">
       <created>1486864522056</created>
@@ -629,28 +607,35 @@
       <option name="project" value="LOCAL" />
       <updated>1486864522056</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="- Added the option for multiple rounds&#10;- Added suffix based on pick number&#10;- Changed team needs to ArrayList&#10;- Tweaked draftValues()&#10;- Added a 'help' option to call draftSuggestions(), provides user with list of 5 player suggestions&#10;- Added TODO's&#10;- Removed unused ReadFile() method">
+      <created>1487330457702</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1487330457702</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34871000" />
+    <option name="totallyTimeSpent" value="37016000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.40684932" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="0" y="10" width="1280" height="780" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21405493" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21728595" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -678,7 +663,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="- Updated position .getName to match JSON data&#10;- Added Scanner to import Prospects as String&#10;- Updated position names in Prospects.JSON to match Position class&#10;- Removed former AI draft implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Updated position .getName to match JSON data&#10;- Added Scanner to import Prospects as String&#10;- Updated position names in Prospects.JSON to match Position class&#10;- Removed former AI draft implementation" />
+    <MESSAGE value="- Added the option for multiple rounds&#10;- Added suffix based on pick number&#10;- Changed team needs to ArrayList&#10;- Tweaked draftValues()&#10;- Added a 'help' option to call draftSuggestions(), provides user with list of 5 player suggestions&#10;- Added TODO's&#10;- Removed unused ReadFile() method" />
+    <MESSAGE value="- Fixed suggestions to prevent duplicates&#10;- Added some TODO's" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Fixed suggestions to prevent duplicates&#10;- Added some TODO's" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -719,8 +706,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1487330412000" expanded="false" signature="2978:3545" ph="..." />
-            <marker date="1487330412000" expanded="true" signature="2979:3545" ph="..." />
+            <marker date="1487470945000" expanded="false" signature="2895:3462" ph="..." />
+            <marker date="1487470945000" expanded="true" signature="2896:3462" ph="..." />
           </folding>
         </state>
       </provider>
@@ -786,8 +773,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1487330412000" expanded="false" signature="2978:3545" ph="..." />
-            <marker date="1487330412000" expanded="true" signature="2979:3545" ph="..." />
+            <marker date="1487470945000" expanded="false" signature="2895:3462" ph="..." />
+            <marker date="1487470945000" expanded="true" signature="2896:3462" ph="..." />
           </folding>
         </state>
       </provider>
@@ -798,8 +785,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1487330412000" expanded="false" signature="2978:3545" ph="..." />
-            <marker date="1487330412000" expanded="true" signature="2979:3545" ph="..." />
+            <marker date="1487470945000" expanded="false" signature="2895:3462" ph="..." />
+            <marker date="1487470945000" expanded="true" signature="2896:3462" ph="..." />
           </folding>
         </state>
       </provider>
@@ -865,8 +852,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1487330412000" expanded="false" signature="2978:3545" ph="..." />
-            <marker date="1487330412000" expanded="true" signature="2979:3545" ph="..." />
+            <marker date="1487470945000" expanded="false" signature="2895:3462" ph="..." />
+            <marker date="1487470945000" expanded="true" signature="2896:3462" ph="..." />
           </folding>
         </state>
       </provider>
@@ -924,8 +911,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1487330412000" expanded="false" signature="2978:3545" ph="..." />
-            <marker date="1487330412000" expanded="true" signature="2979:3545" ph="..." />
+            <marker date="1487470945000" expanded="false" signature="2895:3462" ph="..." />
+            <marker date="1487470945000" expanded="true" signature="2896:3462" ph="..." />
           </folding>
         </state>
       </provider>
@@ -983,8 +970,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1487330412000" expanded="false" signature="2978:3545" ph="..." />
-            <marker date="1487330412000" expanded="true" signature="2979:3545" ph="..." />
+            <marker date="1487470945000" expanded="false" signature="2895:3462" ph="..." />
+            <marker date="1487470945000" expanded="true" signature="2896:3462" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1052,11 +1039,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Prospects.JSON">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/src.zip!/java/util/Arrays.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2835">
-          <caret line="189" column="27" selection-start-line="189" selection-start-column="27" selection-end-line="189" selection-end-column="27" />
-          <folding />
+        <state relative-caret-position="226">
+          <caret line="70" column="13" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Team.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1083,42 +1079,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Position.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProspectParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="32" column="69" selection-start-line="32" selection-start-column="69" selection-end-line="32" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/src.zip!/java/util/Arrays.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="70" column="13" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Team.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-195">
-          <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1130,14 +1090,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MockDraft.java">
+    <entry file="file://$PROJECT_DIR$/src/Position.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1398">
-          <caret line="238" column="5" selection-start-line="238" selection-start-column="5" selection-end-line="238" selection-end-column="5" />
+        <state relative-caret-position="420">
+          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Prospects.JSON">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="686">
+          <caret line="189" column="27" selection-start-line="189" selection-start-column="27" selection-end-line="189" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProspectParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="13" column="82" selection-start-line="13" selection-start-column="82" selection-end-line="13" selection-end-column="82" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1487330412000" expanded="false" signature="2978:3545" ph="..." />
-            <marker date="1487330412000" expanded="true" signature="2979:3545" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MockDraft.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-975">
+          <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1487470945000" expanded="false" signature="2895:3462" ph="..." />
+            <marker date="1487470945000" expanded="true" signature="2896:3462" ph="..." />
           </folding>
         </state>
       </provider>

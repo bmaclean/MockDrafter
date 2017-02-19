@@ -2,21 +2,17 @@ import org.json.JSONException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
-
+import java.util.*;
 
 
 public class MockDraft {
 
     public static void main(String[] args) throws InterruptedException {
-        //create mockDraft instance & parse prospect data
         int LONG_PAUSE = 3000;
         int MED_PAUSE = 2000;
         int SHORT_PAUSE = 1000;
 
+        //create mockDraft instance & parse prospect data
         MockDraft mockDraft = new MockDraft();
         String text = "";
         try {
@@ -152,8 +148,6 @@ public class MockDraft {
     private Player draft(int pick, Team team, List<Player> selectableList, List<Player> selectedList) {
         Player mySelection = null;
 
-        //TODO: advice function that provides 3/4 players (w/ highest score) with custom descriptions
-
         System.out.println("The " + team.getName() + " are on the clock! Enter your selection below." + '\n'
                 + "If you would like some suggestions, enter 'help'." + '\n' );
         Scanner scan = new Scanner(System.in);
@@ -181,9 +175,16 @@ public class MockDraft {
     }
 
     private void draftSuggestions(Team team, List<Player> selectableList, List<Player> selectedList) {
-        //TODO: no duplicate players
+
+        Set<Player> suggestionSet = new HashSet<>();
         for (int i = 5; i > 0; i--) {
+            //TODO: format PLAYER \n DESCRIPTION \n
+            //add all previous suggestions to selectedList to prevent duplicates
+            for (Player s : suggestionSet) {
+                selectedList.add(s);
+            }
             Player suggestion = draftValues(selectableList, selectedList, team.getNeeds());
+            suggestionSet.add(suggestion);
             System.out.println(suggestion.getName() + ", " + suggestion.getPositionName());
         }
 
@@ -192,8 +193,6 @@ public class MockDraft {
 
     private Player AIdraft(Team team, List<Player> selectableList, List<Player> selectedList) {
         List<Position> teamNeeds = team.getNeeds();
-        List<Player> draftBoard = new ArrayList<>();
-        Player draftee = null;
 
         return draftValues(selectableList, selectedList,  teamNeeds);
     }
@@ -208,6 +207,7 @@ public class MockDraft {
         //iterate through the draft board, give each player score, and sort by score...
         for (Player p: draftBoard) {
             //TODO: change constants to local variable factors
+            //TODO: some scores are identical
             playerScore += (random * 300.0)/((p.getRank() + 1) / 2);
             if(p.getPositionName().equals("QB") && teamNeeds.contains(p.getPosition())) {
                 playerScore += 800.0/p.getRank();

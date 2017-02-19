@@ -11,6 +11,7 @@ import java.util.List;
  */
 public class ProspectParser {
     private String jsondata;
+    //TODO: function for writing to JSON data - add attributes (description, etc.)
     //my field:
 
     public ProspectParser(String jsondata) {
