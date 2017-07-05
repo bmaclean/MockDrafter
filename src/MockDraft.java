@@ -16,12 +16,14 @@ public class MockDraft {
         MockDraft mockDraft = new MockDraft();
         String text = "";
         try {
-            Scanner scanner = new Scanner(new File("Prospects.JSON"));
+            Scanner scanner = new Scanner(new File("2018Prospects.JSON"));
             text = scanner.useDelimiter("\\A").next();
             scanner.close();
-        } catch (FileNotFoundException fnfe) {
+        }
+        catch (FileNotFoundException fnfe) {
             System.out.println("Prospects file not found.");
         }
+
         ProspectParser parser = new ProspectParser(text);
         //generate list of draftable players, and list of already drafted players
         List<Player> draftables = null;
@@ -111,11 +113,6 @@ public class MockDraft {
             }
 
         }
-        //TODO: add another round using counter 'pickCounter', each loop is new round beginning at
-        //TODO: pickCounter = 32 (round 2), 64 (round 3), etc.
-
-        //TODO: alternative: helper function 'draftRounds(int rounds, ...)' that receives the number of
-        //TODO: round to draft, using 'rounds' as a decreasing counter to 0
 
         System.out.println("Thank you for attending the 2017 NFL Draft. Here is your 2017 draft class: " + '\n');
         for (int r = 1; r <= rounds; r++) {
@@ -154,8 +151,12 @@ public class MockDraft {
         String s = scan.nextLine().toLowerCase();
 
         if (s.equals("help")) {
+            //TODO: help is causing MockDrafter to crash
             draftSuggestions(team, selectableList, selectedList);
         }
+
+        //TODO: add "trade" functionality - yields incoming random trade offers for current pick
+        //      trade functionality based on online trade metrics - offers 'bad' deals
 
         for (Player p: selectableList) {
             if (p.getName().toLowerCase().contains(s)) {
@@ -177,14 +178,15 @@ public class MockDraft {
     private void draftSuggestions(Team team, List<Player> selectableList, List<Player> selectedList) {
 
         Set<Player> suggestionSet = new HashSet<>();
+        Player suggestion = new Player("this shouldn't show up", Position.C, 3, "so i guess you fucked up");
+
         for (int i = 5; i > 0; i--) {
-            //TODO: format PLAYER \n DESCRIPTION \n
+            //TODO: format PLAYER \n DESCRIPTION \n'
             //add all previous suggestions to selectedList to prevent duplicates
-            for (Player s : suggestionSet) {
-                selectedList.add(s);
+            while (suggestionSet.contains(suggestion)) {
+                suggestion = draftValues(selectableList, selectedList, team.getNeeds());
+                suggestionSet.add(suggestion);
             }
-            Player suggestion = draftValues(selectableList, selectedList, team.getNeeds());
-            suggestionSet.add(suggestion);
             System.out.println(suggestion.getName() + ", " + suggestion.getPositionName());
         }
 

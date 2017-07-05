@@ -12,7 +12,6 @@ import java.util.List;
 public class ProspectParser {
     private String jsondata;
     //TODO: function for writing to JSON data - add attributes (description, etc.)
-    //my field:
 
     public ProspectParser(String jsondata) {
         this.jsondata = jsondata;
@@ -33,7 +32,7 @@ public class ProspectParser {
 
     public Player parsePlayer(JSONObject json) throws JSONException {
         String name = json.getString("Name");
-        String school = json.getString("School");
+        String school = json.getString("College");
         int rank = json.getInt("Rank");
         Position position = Position.P;
         Player thisPlayer;
