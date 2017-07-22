@@ -7,10 +7,136 @@ import java.util.*;
 
 public class MockDraft {
 
+    private Team getTeam(int pick) {
+        Team myTeam = Team.IND;
+        for (Team t : Team.values()) {
+            if (pick == t.getPick()) {
+                myTeam = t;
+            }
+        }
+        return myTeam;
+    }
+
+    private Team getTeam(String name) {
+        Team myTeam = Team.ATL;
+        for (Team t : Team.values()) {
+            if (t.getName().toLowerCase().contains(name.toLowerCase())) {
+                myTeam = t;
+            }
+        }
+        return myTeam;
+    }
+
+    private void trade(Team teamA, List<Integer> teamAPicks, Team teamB, List<Integer> teamBPicks) {
+
+    }
+
+    private Player draft(int pick, Team team, List<Player> selectableList, List<Player> selectedList) {
+        Player mySelection = null;
+
+        System.out.println("The " + team.getName() + " are on the clock! Enter your selection below." + '\n'
+                + "If you would like some suggestions, enter 'help'." + '\n' );
+        Scanner scan = new Scanner(System.in);
+        String s = scan.nextLine().toLowerCase();
+
+        if (s.equals("help")) {
+            draftSuggestions(team, selectableList, selectedList);
+        }
+
+        if (s.equals("trade")) {
+            //TODO: add "trade" functionality - yields incoming random trade offers for current pick
+            //      trade functionality based on online trade metrics - offers 'bad' deals
+
+        }
+
+        for (Player p: selectableList) {
+            if (p.getName().toLowerCase().contains(s)) {
+                mySelection = p;
+            }
+        }
+        if (mySelection == null || selectedList.contains(mySelection)) {
+            System.out.println('\n' + "Please select a remaining draft-eligible player." + '\n' );
+            return null;
+        }
+        if (mySelection != null) {
+            System.out.println("With pick " + Integer.toString(pick) + " the " + team.getName() + " select " +
+                    mySelection.getName() + ", " + mySelection.getPositionName()+ ", " + mySelection.getSchool() + "."  + '\n' );
+        }
+        return mySelection;
+    }
+
+    private void draftSuggestions(Team team, List<Player> selectableList, List<Player> selectedList) {
+
+        List<Player> suggestableList = new ArrayList<>(selectableList);
+        Player suggestion;
+
+        for (int i = 5; i > 0; i--) {
+            //TODO: format PLAYER \n DESCRIPTION \n'
+            // add all previous suggestions to selectedList to prevent duplicates
+            // excluding the first iteration
+            suggestion = draftValues(suggestableList, selectedList, team.getNeeds());
+            suggestableList.remove(suggestion);
+            System.out.println(suggestion.getName() + ", " + suggestion.getPositionName());
+        }
+
+    }
+
+
+    private Player AIdraft(Team team, List<Player> selectableList, List<Player> selectedList) {
+        List<Position> teamNeeds = team.getNeeds();
+
+        return draftValues(selectableList, selectedList,  teamNeeds);
+    }
+
+
+    private Player draftValues(List<Player> draftBoard, List<Player> selected, List<Position> teamNeeds) {
+        Random generator = new Random();
+        double random = generator.nextDouble();
+        double playerScore = 0;
+        double highestScore = 0;
+        Player bestSelection = null;
+        //iterate through the draft board, give each player score, and sort by score...
+        for (Player p: draftBoard) {
+            //TODO: change constants to scalable factors
+            playerScore += (random * 400.0)/((p.getRank() + 1) / 2);
+            if(p.getPositionName().equals("QB") && teamNeeds.contains(p.getPosition())) {
+                playerScore += 100.0/p.getRank();
+                //System.out.println("QB score boost applied.");
+            }
+
+            if(p.getPositionName().equals("QB") && !teamNeeds.contains(p.getPosition())) {
+                playerScore -= 100.0/p.getRank();
+                //System.out.println("QB score reduction applied.");
+            }
+
+            if(p.getPositionName().equals("EDGE")) {
+                playerScore += 5.0;
+            }
+
+            if(teamNeeds.contains(p.getPosition())) {
+                playerScore += 10.0;
+            }
+
+            if ((playerScore > highestScore || bestSelection == null) && !selected.contains(p)) {
+                bestSelection = p;
+                highestScore = playerScore;
+            }
+            //to see scores:
+               /*
+            if (!selected.contains(p)) {
+                System.out.println(p.getName() + " " + playerScore);
+            }*/
+
+            playerScore = 0;
+        }
+        return bestSelection;
+    }
+
+
     public static void main(String[] args) throws InterruptedException {
-        int LONG_PAUSE = 3000;
-        int MED_PAUSE = 2000;
-        int SHORT_PAUSE = 1000;
+        int LONG_PAUSE = 0;//3000;
+        int MED_PAUSE = 0;//2000;
+        int SHORT_PAUSE = 0;//1000;
 
         //create mockDraft instance & parse prospect data
         MockDraft mockDraft = new MockDraft();
@@ -61,6 +187,8 @@ public class MockDraft {
         String selectionName = "";
         //     selectionPos    -> name of position of player being selected in a given round
         String selectionPos = "";
+        //     draftClass      -> list of players selected by user team
+        List<Player> draftClass = new ArrayList<>();
 
         Thread.sleep(SHORT_PAUSE);
         System.out.println('\n' + "Welcome to the 2017 NFL Draft. You will be drafting as the " + myTeam.getName()
@@ -103,8 +231,7 @@ public class MockDraft {
                     while(playerSelection == null) {
                         playerSelection = mockDraft.draft(myPick, myTeam, draftables, drafted);
                     }
-                    selectionName = playerSelection.getName();
-                    selectionPos = playerSelection.getPositionName();
+                    draftClass.add(playerSelection);
                     drafted.add(playerSelection);
                 } else {
                     Player AIDraftee = mockDraft.AIdraft(mockDraft.getTeam(n), draftables, drafted);
@@ -114,139 +241,18 @@ public class MockDraft {
                             mockDraft.getTeam(n).getName() + " select " +
                             AIDraftee.getName() + ", " + AIDraftee.getPositionName() + ", " + AIDraftee.getSchool() + "." + '\n');
                 }
-                Thread.sleep(1500);
+                Thread.sleep(SHORT_PAUSE);
             }
 
         }
 
+        //TODO: summary mechanic displays the same player n times
         System.out.println("Thank you for attending the 2017 NFL Draft. Here is your 2017 draft class: " + '\n');
-        for (int r = 1; r <= rounds; r++) {
-            System.out.println("Round " + Integer.toString(r) + ": " + selectionName + ", " + selectionPos);
+        for (int r = 0; r < rounds; r++) {
+            System.out.println("Round " + Integer.toString(r + 1) + ": " + draftClass.get(r).getName() + ", "
+                    + draftClass.get(r).getPositionName() + ", " + draftClass.get(r).getSchool());
         }
     }
 
-
-    private Team getTeam(int pick) {
-        Team myTeam = Team.IND;
-        for (Team t : Team.values()) {
-            if (pick == t.getPick()) {
-                myTeam = t;
-            }
-        }
-        return myTeam;
-    }
-
-    private Team getTeam(String name) {
-        Team myTeam = Team.ATL;
-        for (Team t : Team.values()) {
-            if (t.getName().toLowerCase().contains(name.toLowerCase())) {
-                myTeam = t;
-            }
-        }
-        return myTeam;
-    }
-
-
-    private Player draft(int pick, Team team, List<Player> selectableList, List<Player> selectedList) {
-        Player mySelection = null;
-
-        System.out.println("The " + team.getName() + " are on the clock! Enter your selection below." + '\n'
-                + "If you would like some suggestions, enter 'help'." + '\n' );
-        Scanner scan = new Scanner(System.in);
-        String s = scan.nextLine().toLowerCase();
-
-        if (s.equals("help")) {
-            draftSuggestions(team, selectableList, selectedList);
-        }
-
-        if (s.equals("trade")) {
-            //TODO: add "trade" functionality - yields incoming random trade offers for current pick
-            //      trade functionality based on online trade metrics - offers 'bad' deals
-        }
-
-        for (Player p: selectableList) {
-            if (p.getName().toLowerCase().contains(s)) {
-                mySelection = p;
-            }
-        }
-        if (mySelection == null || selectedList.contains(mySelection)) {
-            System.out.println('\n' + "Please select a remaining draft-eligible player." + '\n' );
-            return null;
-        }
-        if (mySelection != null) {
-            System.out.println("With pick " + Integer.toString(pick) + " the " + team.getName() + " select " +
-                    mySelection.getName() + ", " + mySelection.getPositionName()+ ", " + mySelection.getSchool() + "."  + '\n' );
-        }
-        return mySelection;
-    }
-
-    private void draftSuggestions(Team team, List<Player> selectableList, List<Player> selectedList) {
-
-        List<Player> suggestableList = new ArrayList<>(selectableList);
-        Player suggestion = new Player("this shouldn't show up", Position.C, 3, "so i guess you fucked up");
-
-        for (int i = 5; i > 0; i--) {
-            //TODO: format PLAYER \n DESCRIPTION \n'
-            // add all previous suggestions to selectedList to prevent duplicates
-            // excluding the first iteration
-            suggestion = draftValues(suggestableList, selectedList, team.getNeeds());
-            suggestableList.remove(suggestion);
-            System.out.println(suggestion.getName() + ", " + suggestion.getPositionName());
-        }
-
-    }
-
-
-    private Player AIdraft(Team team, List<Player> selectableList, List<Player> selectedList) {
-        List<Position> teamNeeds = team.getNeeds();
-
-        return draftValues(selectableList, selectedList,  teamNeeds);
-    }
-
-
-    private Player draftValues(List<Player> draftBoard, List<Player> selected, List<Position> teamNeeds) {
-        Random generator = new Random();
-        double random = generator.nextDouble();
-        double playerScore = 0;
-        double highestScore = 0;
-        Player bestSelection = null;
-        //iterate through the draft board, give each player score, and sort by score...
-        for (Player p: draftBoard) {
-            //TODO: change constants to local variable factors
-            //TODO: some scores are identical
-            playerScore += (random * 300.0)/((p.getRank() + 1) / 2);
-            if(p.getPositionName().equals("QB") && teamNeeds.contains(p.getPosition())) {
-                playerScore += 800.0/p.getRank();
-                //System.out.println("QB score boost applied.");
-            }
-
-            if(p.getPositionName().equals("QB") && !teamNeeds.contains(p.getPosition())) {
-                playerScore -= 800.0/p.getRank();
-                //System.out.println("QB score reduction applied.");
-            }
-
-            if(p.getPositionName().equals("EDGE")) {
-                playerScore += 5.0;
-            }
-
-            if(teamNeeds.contains(p.getPosition())) {
-                playerScore += 20.0;
-            }
-            if ((playerScore > highestScore || bestSelection == null) && !selected.contains(p)) {
-                bestSelection = p;
-                highestScore = playerScore;
-            }
-            //to see scores:
-            /*
-            if (!selected.contains(p)) {
-                System.out.println(p.getName() + " " + playerScore);
-            }
-            */
-
-
-            playerScore = 0;
-        }
-        return bestSelection;
-    }
 
 }
