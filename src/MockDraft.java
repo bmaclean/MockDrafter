@@ -56,7 +56,7 @@ public class MockDraft {
         Integer rounds = Integer.parseInt(scan2.nextLine());
 
         //     playerSelection -> player being selected in a given round
-        Player playerSelection;
+        Player playerSelection = null;
         //     selectionName   -> name of player being selected in a given round
         String selectionName = "";
         //     selectionPos    -> name of position of player being selected in a given round
@@ -97,7 +97,12 @@ public class MockDraft {
 
                 }
                 if (n == myPick) {
-                    playerSelection = mockDraft.draft(myPick, myTeam, draftables, drafted);
+                    // set playerSelection to null at the beginning of each pick - allows loop to
+                    // continue if selection is invalid
+                    playerSelection = null;
+                    while(playerSelection == null) {
+                        playerSelection = mockDraft.draft(myPick, myTeam, draftables, drafted);
+                    }
                     selectionName = playerSelection.getName();
                     selectionPos = playerSelection.getPositionName();
                     drafted.add(playerSelection);
@@ -151,12 +156,13 @@ public class MockDraft {
         String s = scan.nextLine().toLowerCase();
 
         if (s.equals("help")) {
-            //TODO: help is causing MockDrafter to crash
             draftSuggestions(team, selectableList, selectedList);
         }
 
-        //TODO: add "trade" functionality - yields incoming random trade offers for current pick
-        //      trade functionality based on online trade metrics - offers 'bad' deals
+        if (s.equals("trade")) {
+            //TODO: add "trade" functionality - yields incoming random trade offers for current pick
+            //      trade functionality based on online trade metrics - offers 'bad' deals
+        }
 
         for (Player p: selectableList) {
             if (p.getName().toLowerCase().contains(s)) {
@@ -165,28 +171,26 @@ public class MockDraft {
         }
         if (mySelection == null || selectedList.contains(mySelection)) {
             System.out.println('\n' + "Please select a remaining draft-eligible player." + '\n' );
-            draft(pick, team, selectableList, selectedList);
+            return null;
         }
         if (mySelection != null) {
             System.out.println("With pick " + Integer.toString(pick) + " the " + team.getName() + " select " +
                     mySelection.getName() + ", " + mySelection.getPositionName()+ ", " + mySelection.getSchool() + "."  + '\n' );
         }
-
         return mySelection;
     }
 
     private void draftSuggestions(Team team, List<Player> selectableList, List<Player> selectedList) {
 
-        Set<Player> suggestionSet = new HashSet<>();
+        List<Player> suggestableList = new ArrayList<>(selectableList);
         Player suggestion = new Player("this shouldn't show up", Position.C, 3, "so i guess you fucked up");
 
         for (int i = 5; i > 0; i--) {
             //TODO: format PLAYER \n DESCRIPTION \n'
-            //add all previous suggestions to selectedList to prevent duplicates
-            while (suggestionSet.contains(suggestion)) {
-                suggestion = draftValues(selectableList, selectedList, team.getNeeds());
-                suggestionSet.add(suggestion);
-            }
+            // add all previous suggestions to selectedList to prevent duplicates
+            // excluding the first iteration
+            suggestion = draftValues(suggestableList, selectedList, team.getNeeds());
+            suggestableList.remove(suggestion);
             System.out.println(suggestion.getName() + ", " + suggestion.getPositionName());
         }
 
@@ -214,6 +218,11 @@ public class MockDraft {
             if(p.getPositionName().equals("QB") && teamNeeds.contains(p.getPosition())) {
                 playerScore += 800.0/p.getRank();
                 //System.out.println("QB score boost applied.");
+            }
+
+            if(p.getPositionName().equals("QB") && !teamNeeds.contains(p.getPosition())) {
+                playerScore -= 800.0/p.getRank();
+                //System.out.println("QB score reduction applied.");
             }
 
             if(p.getPositionName().equals("EDGE")) {

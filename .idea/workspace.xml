@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="85763d38-e7d1-4b18-8585-a746b8c05776" name="Default" comment="- Fixed suggestions to prevent duplicates&#10;- Added some TODO's">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2018Prospects.JSON" />
+    <list default="true" id="85763d38-e7d1-4b18-8585-a746b8c05776" name="Default" comment="- Fixed duplicate player bug&#10;- Fixed 'help' functionality bug&#10;- Added TODO's&#10;- Updated some Team info (draft order, team needs)">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MockDrafter/MockDraft.class" afterPath="$PROJECT_DIR$/out/production/MockDrafter/MockDraft.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MockDrafter/ProspectParser.class" afterPath="$PROJECT_DIR$/out/production/MockDrafter/ProspectParser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MockDrafter/Team.class" afterPath="$PROJECT_DIR$/out/production/MockDrafter/Team.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MockDrafter.iml" afterPath="$PROJECT_DIR$/MockDrafter.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MockDraft.java" afterPath="$PROJECT_DIR$/src/MockDraft.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProspectParser.java" afterPath="$PROJECT_DIR$/src/ProspectParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Team.java" afterPath="$PROJECT_DIR$/src/Team.java" />
     </list>
     <ignored path="MockDrafter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,8 +35,8 @@
       <file leaf-file-name="MockDraft.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MockDraft.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+            <state relative-caret-position="241">
+              <caret line="183" column="0" lean-forward="true" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -49,11 +47,9 @@
       <file leaf-file-name="ProspectParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ProspectParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="29" column="25" lean-forward="true" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="360">
+              <caret line="29" column="25" lean-forward="false" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -62,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/2018Prospects.JSON">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17475">
-              <caret line="1165" column="3" lean-forward="true" selection-start-line="1165" selection-start-column="3" selection-end-line="1165" selection-end-column="3" />
+              <caret line="1165" column="3" lean-forward="false" selection-start-line="1165" selection-start-column="3" selection-end-line="1165" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -71,7 +67,7 @@
       <file leaf-file-name="Prospects.JSON" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Prospects.JSON">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-261">
+            <state relative-caret-position="4095">
               <caret line="273" column="15" lean-forward="false" selection-start-line="273" selection-start-column="13" selection-end-line="273" selection-end-column="15" />
               <folding />
             </state>
@@ -91,8 +87,8 @@
       <file leaf-file-name="Team.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Team.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="17" column="49" lean-forward="false" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+            <state relative-caret-position="135">
+              <caret line="11" column="38" lean-forward="false" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -103,7 +99,20 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
               <caret line="20" column="5" lean-forward="false" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-              <folding />
+              <folding>
+                <element signature="e#337#338#0" expanded="false" />
+                <element signature="e#364#365#0" expanded="false" />
+                <element signature="e#404#405#0" expanded="false" />
+                <element signature="e#439#440#0" expanded="false" />
+                <element signature="e#463#464#0" expanded="false" />
+                <element signature="e#490#491#0" expanded="false" />
+                <element signature="e#520#521#0" expanded="false" />
+                <element signature="e#551#552#0" expanded="false" />
+                <element signature="e#577#578#0" expanded="false" />
+                <element signature="e#606#607#0" expanded="false" />
+                <element signature="e#645#646#0" expanded="false" />
+                <element signature="e#686#687#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,6 +134,7 @@
       <find>prospects</find>
       <find>de</find>
       <find>College</find>
+      <find>playersele</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -144,14 +154,14 @@
         <option value="$PROJECT_DIR$/src/Position.java" />
         <option value="$PROJECT_DIR$/Prospects.JSON" />
         <option value="$PROJECT_DIR$/ProspectsWithoutSchool.JSON" />
-        <option value="$PROJECT_DIR$/src/Team.java" />
         <option value="$PROJECT_DIR$/src/js/app.js" />
         <option value="$PROJECT_DIR$/src/Java/Position.java" />
         <option value="$PROJECT_DIR$/src/Java/Player.java" />
         <option value="$PROJECT_DIR$/src/Java/Team.java" />
-        <option value="$PROJECT_DIR$/src/MockDraft.java" />
         <option value="$PROJECT_DIR$/2018Prospects.JSON" />
         <option value="$PROJECT_DIR$/src/ProspectParser.java" />
+        <option value="$PROJECT_DIR$/src/Team.java" />
+        <option value="$PROJECT_DIR$/src/MockDraft.java" />
       </list>
     </option>
   </component>
@@ -639,7 +649,10 @@
       <workItem from="1497479783652" duration="64000" />
       <workItem from="1497565578582" duration="966000" />
       <workItem from="1498934558502" duration="1098000" />
-      <workItem from="1499214624474" duration="878000" />
+      <workItem from="1499214624474" duration="952000" />
+      <workItem from="1500148932058" duration="1171000" />
+      <workItem from="1500572925007" duration="309000" />
+      <workItem from="1500684627409" duration="2868000" />
     </task>
     <task id="LOCAL-00001" summary="- Updated position .getName to match JSON data&#10;- Added Scanner to import Prospects as String&#10;- Updated position names in Prospects.JSON to match Position class&#10;- Removed former AI draft implementation">
       <created>1486864522056</created>
@@ -662,11 +675,18 @@
       <option name="project" value="LOCAL" />
       <updated>1487471160473</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="- Added 2018 prospects&#10;- Tweaked parser to adjust to new prospects">
+      <created>1499216727902</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1499216727902</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46946000" />
+    <option name="totallyTimeSpent" value="51368000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -681,16 +701,15 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.40684932" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="0" y="61" width="888" height="633" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.40684932" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="212" y="27" width="888" height="633" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24232633" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24878837" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -701,6 +720,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -721,7 +741,9 @@
     <MESSAGE value="- Updated position .getName to match JSON data&#10;- Added Scanner to import Prospects as String&#10;- Updated position names in Prospects.JSON to match Position class&#10;- Removed former AI draft implementation" />
     <MESSAGE value="- Added the option for multiple rounds&#10;- Added suffix based on pick number&#10;- Changed team needs to ArrayList&#10;- Tweaked draftValues()&#10;- Added a 'help' option to call draftSuggestions(), provides user with list of 5 player suggestions&#10;- Added TODO's&#10;- Removed unused ReadFile() method" />
     <MESSAGE value="- Fixed suggestions to prevent duplicates&#10;- Added some TODO's" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Fixed suggestions to prevent duplicates&#10;- Added some TODO's" />
+    <MESSAGE value="- Added 2018 prospects&#10;- Tweaked parser to adjust to new prospects" />
+    <MESSAGE value="- Fixed duplicate player bug&#10;- Fixed 'help' functionality bug&#10;- Added TODO's&#10;- Updated some Team info (draft order, team needs)" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Fixed duplicate player bug&#10;- Fixed 'help' functionality bug&#10;- Added TODO's&#10;- Updated some Team info (draft order, team needs)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -734,7 +756,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#337#338#0" expanded="false" />
+            <element signature="e#364#365#0" expanded="false" />
+            <element signature="e#404#405#0" expanded="false" />
+            <element signature="e#439#440#0" expanded="false" />
+            <element signature="e#463#464#0" expanded="false" />
+            <element signature="e#490#491#0" expanded="false" />
+            <element signature="e#520#521#0" expanded="false" />
+            <element signature="e#551#552#0" expanded="false" />
+            <element signature="e#577#578#0" expanded="false" />
+            <element signature="e#606#607#0" expanded="false" />
+            <element signature="e#645#646#0" expanded="false" />
+            <element signature="e#686#687#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -792,9 +827,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="40" column="26" lean-forward="false" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -802,7 +835,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#337#338#0" expanded="false" />
+            <element signature="e#364#365#0" expanded="false" />
+            <element signature="e#404#405#0" expanded="false" />
+            <element signature="e#439#440#0" expanded="false" />
+            <element signature="e#463#464#0" expanded="false" />
+            <element signature="e#490#491#0" expanded="false" />
+            <element signature="e#520#521#0" expanded="false" />
+            <element signature="e#551#552#0" expanded="false" />
+            <element signature="e#577#578#0" expanded="false" />
+            <element signature="e#606#607#0" expanded="false" />
+            <element signature="e#645#646#0" expanded="false" />
+            <element signature="e#686#687#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -850,9 +896,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="43" column="54" lean-forward="false" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -860,7 +904,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="49" lean-forward="false" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="53" />
-          <folding />
+          <folding>
+            <element signature="e#337#338#0" expanded="false" />
+            <element signature="e#364#365#0" expanded="false" />
+            <element signature="e#404#405#0" expanded="false" />
+            <element signature="e#439#440#0" expanded="false" />
+            <element signature="e#463#464#0" expanded="false" />
+            <element signature="e#490#491#0" expanded="false" />
+            <element signature="e#520#521#0" expanded="false" />
+            <element signature="e#551#552#0" expanded="false" />
+            <element signature="e#577#578#0" expanded="false" />
+            <element signature="e#606#607#0" expanded="false" />
+            <element signature="e#645#646#0" expanded="false" />
+            <element signature="e#686#687#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -901,9 +958,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="43" column="54" lean-forward="false" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -911,7 +966,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#337#338#0" expanded="false" />
+            <element signature="e#364#365#0" expanded="false" />
+            <element signature="e#404#405#0" expanded="false" />
+            <element signature="e#439#440#0" expanded="false" />
+            <element signature="e#463#464#0" expanded="false" />
+            <element signature="e#490#491#0" expanded="false" />
+            <element signature="e#520#521#0" expanded="false" />
+            <element signature="e#551#552#0" expanded="false" />
+            <element signature="e#577#578#0" expanded="false" />
+            <element signature="e#606#607#0" expanded="false" />
+            <element signature="e#645#646#0" expanded="false" />
+            <element signature="e#686#687#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -959,7 +1027,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="25" column="33" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="27" selection-end-column="1" />
-          <folding />
+          <folding>
+            <element signature="e#337#338#0" expanded="false" />
+            <element signature="e#364#365#0" expanded="false" />
+            <element signature="e#404#405#0" expanded="false" />
+            <element signature="e#439#440#0" expanded="false" />
+            <element signature="e#463#464#0" expanded="false" />
+            <element signature="e#490#491#0" expanded="false" />
+            <element signature="e#520#521#0" expanded="false" />
+            <element signature="e#551#552#0" expanded="false" />
+            <element signature="e#577#578#0" expanded="false" />
+            <element signature="e#606#607#0" expanded="false" />
+            <element signature="e#645#646#0" expanded="false" />
+            <element signature="e#686#687#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1038,18 +1119,47 @@
     <entry file="file://$PROJECT_DIR$/src/js/app.js" />
     <entry file="file://$PROJECT_DIR$/src/Java/Player.java" />
     <entry file="file://$PROJECT_DIR$/src/Java/Team.java" />
-    <entry file="file://$PROJECT_DIR$/src/Team.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="17" column="49" lean-forward="false" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="20" column="5" lean-forward="false" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+          <folding>
+            <element signature="e#337#338#0" expanded="false" />
+            <element signature="e#364#365#0" expanded="false" />
+            <element signature="e#404#405#0" expanded="false" />
+            <element signature="e#439#440#0" expanded="false" />
+            <element signature="e#463#464#0" expanded="false" />
+            <element signature="e#490#491#0" expanded="false" />
+            <element signature="e#520#521#0" expanded="false" />
+            <element signature="e#551#552#0" expanded="false" />
+            <element signature="e#577#578#0" expanded="false" />
+            <element signature="e#606#607#0" expanded="false" />
+            <element signature="e#645#646#0" expanded="false" />
+            <element signature="e#686#687#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Prospects.JSON">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4095">
+          <caret line="273" column="15" lean-forward="false" selection-start-line="273" selection-start-column="13" selection-end-line="273" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2018Prospects.JSON">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17475">
+          <caret line="1165" column="3" lean-forward="false" selection-start-line="1165" selection-start-column="3" selection-end-line="1165" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProspectParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="29" column="25" lean-forward="false" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -1062,36 +1172,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Prospects.JSON">
+    <entry file="file://$PROJECT_DIR$/src/Team.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-261">
-          <caret line="273" column="15" lean-forward="false" selection-start-line="273" selection-start-column="13" selection-end-line="273" selection-end-column="15" />
+        <state relative-caret-position="135">
+          <caret line="11" column="38" lean-forward="false" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2018Prospects.JSON">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17475">
-          <caret line="1165" column="3" lean-forward="true" selection-start-line="1165" selection-start-column="3" selection-end-line="1165" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProspectParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="29" column="25" lean-forward="true" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MockDraft.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        <state relative-caret-position="241">
+          <caret line="183" column="0" lean-forward="true" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
